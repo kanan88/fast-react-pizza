@@ -1,6 +1,7 @@
-/* eslint-disable no-unused-vars */
 // Test ID: IIDSAT
 
+import { useLoaderData } from "react-router-dom";
+import { getOrder } from "../../services/apiRestaurant";
 import {
   calcMinutesLeft,
   formatCurrency,
@@ -43,7 +44,11 @@ const order = {
 };
 
 const Order = () => {
-  // Everyone can search for all orders, so for privacy reasons we're gonna gonna exclude names or address, these are only for the restaurant staff
+  const order = useLoaderData();
+
+  // Everyone can search for all orders,
+  // so for privacy reasons we're gonna gonna exclude names or address,
+  // these are only for the restaurant staff
   const {
     id,
     status,
@@ -83,5 +88,7 @@ const Order = () => {
     </div>
   );
 };
+
+export const loader = async ({ params }) => await getOrder(params.orderId);
 
 export default Order;
