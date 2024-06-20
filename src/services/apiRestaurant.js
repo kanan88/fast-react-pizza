@@ -36,7 +36,7 @@ export async function createOrder(newOrder) {
   }
 }
 
-export async function updateOrder(id, updateObj) {
+export const updateOrder = async (id, updateObj) => {
   try {
     const res = await fetch(`${API_URL}/order/${id}`, {
       method: "PATCH",
@@ -51,4 +51,4 @@ export async function updateOrder(id, updateObj) {
   } catch (err) {
     throw Error("Failed updating your order");
   }
-}
+};
