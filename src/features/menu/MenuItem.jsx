@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { formatCurrency } from "../../utilities/helpers";
 import Button from "../../ui/Button";
 import { useDispatch } from "react-redux";
